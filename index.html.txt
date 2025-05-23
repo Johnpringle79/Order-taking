@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Tiffin Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light gray background */
+        }
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #f59e0b; /* Amber 500 */
+            border-radius: 9999px; /* Fully rounded */
+        }
+        .menu-item-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .menu-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .order-button {
+            transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+        }
+        .order-button:hover {
+            background-color: #d97706; /* Amber 600 */
+            transform: translateY(-1px);
+        }
+        .order-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-gradient-to-r from-amber-500 to-orange-500 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-4xl font-extrabold tracking-tight mb-4 md:mb-0">
+                <span class="block">Delicious Tiffin Service</span>
+            </h1>
+            <nav>
+                <ul class="flex space-x-6 text-lg font-semibold">
+                    <li><a href="#home" class="hover:text-amber-200 transition duration-300 ease-in-out">Home</a></li>
+                    <li><a href="#menu" class="hover:text-amber-200 transition duration-300 ease-in-out">Menu</a></li>
+                    <li><a href="#order" class="hover:text-amber-200 transition duration-300 ease-in-out">Order Now</a></li>
+                    <li><a href="#contact" class="hover:text-amber-200 transition duration-300 ease-in-out">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="py-20 bg-white text-center shadow-inner">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+                Fresh, Healthy, and Delicious Tiffins Delivered to Your Doorstep!
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Experience the convenience of home-cooked meals without the hassle.
+                We prepare daily fresh tiffins with love and care, ensuring a balanced and tasty diet for you.
+            </p>
+            <img src="https://placehold.co/800x450/FDBA74/6E4E2A?text=Delicious+Tiffin+Meal" alt="Delicious Tiffin Meal" class="rounded-xl shadow-xl mx-auto mb-10">
+            <a href="#order" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg transform transition duration-300 hover:scale-105">
+                Place Your Order Today!
+            </a>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center section-heading mx-auto mb-12">Our Delicious Menu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md menu-item-card">
+                    <img src="https://placehold.co/300x200/FCD34D/6E4E2A?text=Veg+Thali" alt="Vegetarian Thali" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Standard Veg Thali</h3>
+                    <p class="text-gray-600 mb-4">2 Rotis, 1 Sabzi, Dal, Rice, Salad, Pickle</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-amber-600 text-3xl font-bold">₹120</span>
+                        <button class="bg-amber-500 text-white py-2 px-6 rounded-full font-semibold order-button" onclick="addToOrder('Standard Veg Thali', 120)">Add to Order</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md menu-item-card">
+                    <img src="https://placehold.co/300x200/FCD34D/6E4E2A?text=Deluxe+Thali" alt="Deluxe Thali" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Deluxe Veg Thali</h3>
+                    <p class="text-gray-600 mb-4">4 Rotis, 2 Sabzi, Dal, Rice, Sweet, Salad, Pickle, Raita</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-amber-600 text-3xl font-bold">₹180</span>
+                        <button class="bg-amber-500 text-white py-2 px-6 rounded-full font-semibold order-button" onclick="addToOrder('Deluxe Veg Thali', 180)">Add to Order</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md menu-item-card">
+                    <img src="https://placehold.co/300x200/FCD34D/6E4E2A?text=Special+Combo" alt="Special Combo" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Daily Special Combo</h3>
+                    <p class="text-gray-600 mb-4">Chef's special dish, Rice, 2 Rotis, Salad</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-amber-600 text-3xl font-bold">₹150</span>
+                        <button class="bg-amber-500 text-white py-2 px-6 rounded-full font-semibold order-button" onclick="addToOrder('Daily Special Combo', 150)">Add to Order</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md menu-item-card">
+                    <img src="https://placehold.co/300x200/FCD34D/6E4E2A?text=Breakfast+Poha" alt="Breakfast Poha" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Breakfast: Poha/Upma</h3>
+                    <p class="text-gray-600 mb-4">Light and healthy breakfast option, served with chutney.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-amber-600 text-3xl font-bold">₹60</span>
+                        <button class="bg-amber-500 text-white py-2 px-6 rounded-full font-semibold order-button" onclick="addToOrder('Breakfast: Poha/Upma', 60)">Add to Order</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md menu-item-card">
+                    <img src="https://placehold.co/300x200/FCD34D/6E4E2A?text=Breakfast+Idli" alt="Breakfast Idli" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Breakfast: Idli/Dosa</h3>
+                    <p class="text-gray-600 mb-4">South Indian delicacy with Sambar and Chutney.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-amber-600 text-3xl font-bold">₹70</span>
+                        <button class="bg-amber-500 text-white py-2 px-6 rounded-full font-semibold order-button" onclick="addToOrder('Breakfast: Idli/Dosa', 70)">Add to Order</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md menu-item-card">
+                    <img src="https://placehold.co/300x200/FCD34D/6E4E2A?text=Non-Veg+Thali" alt="Non-Veg Thali" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Non-Veg Special Thali</h3>
+                    <p class="text-gray-600 mb-4">2 Rotis, Chicken/Mutton Curry, Rice, Salad, Pickle</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-amber-600 text-3xl font-bold">₹220</span>
+                        <button class="bg-amber-500 text-white py-2 px-6 rounded-full font-semibold order-button" onclick="addToOrder('Non-Veg Special Thali', 220)">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <h2 class="text-4xl font-bold text-center section-heading mx-auto mb-12">Place Your Order</h2>
+            <form id="orderForm" class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-700 text-lg font-semibold mb-2">Your Name:</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500 transition duration-300">
+                </div>
+                <div class="mb-6">
+                    <label for="phone" class="block text-gray-700 text-lg font-semibold mb-2">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500 transition duration-300">
+                </div>
+                <div class="mb-6">
+                    <label for="address" class="block text-gray-700 text-lg font-semibold mb-2">Delivery Address:</label>
+                    <textarea id="address" name="address" rows="4" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500 transition duration-300"></textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="order-details" class="block text-gray-700 text-lg font-semibold mb-2">Your Order:</label>
+                    <textarea id="order-details" name="order-details" rows="6" readonly class="w-full px-4 py-3 rounded-lg bg-gray-200 border-2 border-gray-300 focus:outline-none focus:border-amber-500 transition duration-300"></textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="total-price" class="block text-gray-700 text-lg font-semibold mb-2">Total Price:</label>
+                    <input type="text" id="total-price" name="total-price" value="₹0" readonly class="w-full px-4 py-3 rounded-lg bg-gray-200 border-2 border-gray-300 font-bold text-xl text-amber-700">
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-full text-xl shadow-lg transform transition duration-300 hover:scale-105">
+                    Confirm Order
+                </button>
+            </form>
+            <div id="confirmationMessage" class="hidden mt-8 p-6 bg-green-100 text-green-800 rounded-lg shadow-md text-center text-lg font-semibold">
+                Your order has been placed successfully! We will contact you shortly.
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold section-heading mx-auto text-white mb-12">Get in Touch</h2>
+            <p class="text-lg mb-4">Have questions or special requests? Feel free to reach out!</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-amber-400 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 13a1 1 0 112 0v1a1 1 0 11-2 0v-1zm1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                    <span class="text-xl font-semibold">Phone: +91 98765 43210</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-amber-400 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    <span class="text-xl font-semibold">Email: info@tiffin.com</span>
+                </div>
+            </div>
+            <p class="mt-8 text-md text-gray-400">Operating Hours: Monday - Saturday, 8:00 AM - 9:00 PM</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Delicious Tiffin Service. All rights reserved.</p>
+            <p class="mt-2">Designed with ❤️ for delicious meals.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array to store selected order items
+        let orderItems = [];
+        let totalPrice = 0;
+
+        /**
+         * Adds a selected menu item to the order list and updates the total price.
+         * @param {string} itemName - The name of the item.
+         * @param {number} itemPrice - The price of the item.
+         */
+        function addToOrder(itemName, itemPrice) {
+            orderItems.push({ name: itemName, price: itemPrice });
+            totalPrice += itemPrice;
+            updateOrderDetails();
+        }
+
+        /**
+         * Updates the order details textarea and total price input field.
+         */
+        function updateOrderDetails() {
+            const orderDetailsTextarea = document.getElementById('order-details');
+            const totalPriceInput = document.getElementById('total-price');
+
+            let details = '';
+            orderItems.forEach(item => {
+                details += `${item.name} (₹${item.price})\n`;
+            });
+
+            orderDetailsTextarea.value = details;
+            totalPriceInput.value = `₹${totalPrice}`;
+        }
+
+        // Get the order form and confirmation message elements
+        const orderForm = document.getElementById('orderForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        // Add an event listener for form submission
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // In a real application, you would send this data to a server.
+            // For a static site, we'll just display a confirmation message.
+            console.log('Order Details:', {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                order: orderItems,
+                total: totalPrice
+            });
+
+            // Show the confirmation message
+            orderForm.reset(); // Clear the form
+            orderItems = []; // Clear order items
+            totalPrice = 0; // Reset total price
+            updateOrderDetails(); // Update display to clear
+            confirmationMessage.classList.remove('hidden');
+
+            // Optionally, hide the message after a few seconds
+            setTimeout(() => {
+                confirmationMessage.classList.add('hidden');
+            }, 5000); // Hide after 5 seconds
+        });
+    </script>
+</body>
+</html>
